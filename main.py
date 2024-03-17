@@ -1,26 +1,29 @@
-# Programa 1: Búsqueda en Arreglo Multidimensional
-matriz = [
-    [9, 8, 7],
-    [6, 5, 4],
-    [3, 2, 1]
-]
+def calcular_descuento(monto_total, porcentaje_descuento=10):
+    """
+    Función para calcular el descuento aplicando un porcentaje al monto total de la compra.
+    """
+    descuento = monto_total * (porcentaje_descuento / 100)
+    return descuento
 
-# Función para buscar un valor en la matriz
-def buscar_valor(matriz, valor):
-    for fila in range(len(matriz)):
-        for columna in range(len(matriz[0])):
-            if matriz[fila][columna] == valor:
-                return fila, columna
-    return None
+def main():
+    """
+    Función principal del programa.
+    """
+    # Llamada a la función con solo el monto total de la compra
+    monto_compra1 = 1000
+    descuento1 = calcular_descuento(monto_compra1)
+    monto_final1 = monto_compra1 - descuento1
+    print(f"Monto del descuento: ${descuento1:.2f}")
+    print(f"Monto final a pagar: ${monto_final1:.2f}")
 
-# Valor que deseas buscar
-valor_buscado = 5
+    # Llamada a la función con el monto total de la compra y un porcentaje de descuento personalizado
+    monto_compra2 = 2000
+    porcentaje_descuento2 = 15
+    descuento2 = calcular_descuento(monto_compra2, porcentaje_descuento2)
+    monto_final2 = monto_compra2 - descuento2
+    print(f"\nMonto del descuento con {porcentaje_descuento2}% de descuento: ${descuento2:.2f}")
+    print(f"Monto final a pagar con {porcentaje_descuento2}% de descuento: ${monto_final2:.2f}")
 
-# Realizar la búsqueda
-posicion = buscar_valor(matriz, valor_buscado)
+if __name__ == "__main__":
+    main()
 
-# Mostrar el resultado
-if posicion:
-    print(f"El valor {valor_buscado} se encontró en la posición: fila {posicion[0] + 1}, columna {posicion[1] + 1}.")
-else:
-    print(f"El valor {valor_buscado} no se encontró en la matriz.")
